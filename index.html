@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JARVIS - Virtual Assistant</title>
+    <link rel="shortcut icon" href="jarvis.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Loader Screen -->
+    <div id="loader" class="loader-screen">
+        <h2>Initializing J.A.R.V.I.S...</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="background-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- JARVIS UI -->
+    <section class="main">
+        <div class="image-container">
+            <div class="image">
+                <img src="giphy.gif" alt="JARVIS animated avatar" />
+            </div>
+            <h1>J A R V I S</h1>
+            <p>I'm a Virtual Assistant JARVIS, How may I help you?</p>
+        </div>
+        <div class="input">
+            <button class="talk" aria-label="Start voice input">
+                <i class="fas fa-microphone-alt"></i>
+            </button>
+            <h1 class="content" aria-live="polite">Click here to speak</h1>
+        </div>
+    </section>
+
+    <!-- Startup Audio -->
+    <audio id="intro-audio" src="startup.mp3" preload="auto"></audio>
+
+    <!-- JS File -->
+    <script>
+        // Loader display for 4 seconds
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            const main = document.querySelector(".main");
+
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => {
+                    loader.style.display = "none";
+                    main.classList.add("visible");
+                }, 800); // fade-out transition
+            }, 4000);
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
